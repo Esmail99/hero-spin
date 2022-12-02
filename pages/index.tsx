@@ -1,19 +1,12 @@
-import Head from "next/head";
+import { Card } from "../components/shared";
 
 export default function Home() {
   return (
-    <div>
-      <Head>
-        <title>Hero Spin</title>
-
-        <meta
-          name="description"
-          content="Get your next super hero movie to watch!"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <h1>Home page</h1>
-    </div>
+    <>
+      <Card
+        title="Spider Man"
+        image="https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg"
+      />
+    </>
   );
 }
