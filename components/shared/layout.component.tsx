@@ -6,7 +6,7 @@ export const Layout = ({ children }: any) => {
     <>
       <Meta />
 
-      <div className="flex min-h-screen flex-col items-center justify-center py-2">
+      <div className="flex min-h-screen flex-col justify-center py-2">
         {children}
       </div>
 
