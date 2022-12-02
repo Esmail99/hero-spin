@@ -7,7 +7,7 @@ type Props = {
 
 export const Card = ({ data }: Props) => {
   return (
-    <div className="w-lg rounded-xl overflow-hidden shadow-lg bg-red-500 hover:bg-sky-700 hover:scale-110 duration-300">
+    <div className="w-lg rounded-xl overflow-hidden shadow-lg bg-red-500 hover:bg-sky-700 hover:scale-105 duration-300">
       <Image
         src={data.image}
         alt={`${data.title} image`}
