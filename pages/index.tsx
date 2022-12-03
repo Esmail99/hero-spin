@@ -1,6 +1,6 @@
 import { Search } from "components/home";
 import { List } from "components/shared";
-import heros from "mocks/heros.mock.json";
+import { heros } from "mocks";
 
 export default function Home() {
   return (

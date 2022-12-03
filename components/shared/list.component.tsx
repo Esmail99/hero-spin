@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { createRef, useCallback, useState } from "react";
 import { ICard } from "types/card.types";
 import { Button } from "./button.component";
@@ -13,9 +13,11 @@ type Props = {
 export const List = ({ type, title, items }: Props) => {
   const [activeItemIndex, setActiveItemIndex] = useState<number>();
 
-  const refs = items.map(() => {
-    return createRef<HTMLDivElement>();
-  });
+  const refs = useMemo(() => {
+    return items.map(() => {
+      return createRef<HTMLDivElement>();
+    });
+  }, []);
 
   useEffect(() => {
     if (activeItemIndex === 0 || activeItemIndex) {
