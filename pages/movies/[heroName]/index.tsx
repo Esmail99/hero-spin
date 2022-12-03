@@ -1,9 +1,9 @@
 import { NextPageContext } from "next";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
-import { List } from "../../components/shared";
-import { configs } from "../../configs";
-import { IMovieCard } from "../../types/movie.types";
+import { List } from "../../../components/shared";
+import { configs } from "../../../configs";
+import { IMovieCard } from "../../../types/movie.types";
 
 interface Props {
   movies?: IMovieCard[];
@@ -17,6 +17,7 @@ export default function Movies({ movies }: Props) {
       return {
         title: movie.Title,
         image: movie.Poster === "N/A" ? undefined : movie.Poster,
+        imdbID: movie.imdbID,
       };
     });
   }, [movies]);
@@ -47,7 +48,7 @@ export const getServerSideProps = async (context: NextPageContext) => {
 
   return {
     props: {
-      movies: data.Search || null,
+      movies: data.Response === "True" ? data.Search : null,
     },
   };
 };

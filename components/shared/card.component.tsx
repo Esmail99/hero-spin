@@ -10,7 +10,13 @@ type Props = {
 
 export const Card = ({ type, data, active }: Props) => {
   return (
-    <Link href={type === "hero" ? `/movies/${data.title}` : "/"}>
+    <Link
+      href={
+        type === "hero"
+          ? `/movies/${data.title}`
+          : `/movies/${data.title}/${data.imdbID}`
+      }
+    >
       <div
         className={`flex flex-1 flex-col rounded-xl overflow-hidden shadow-lg bg-red-500 hover:scale-105 duration-300 ${
           active && "bg-sky-700 scale-105"
