@@ -4,7 +4,7 @@ import heros from "../mocks/heros.mock.json";
 export default function Home() {
   return (
     <>
-      <List title="Select your super hero" items={heros} />
+      <List type="hero" title="Select your super hero" items={heros} />
     </>
   );
 }

@@ -21,7 +21,13 @@ export default function Movies({ movies }: Props) {
     });
   }, [movies]);
 
-  return <List title={query.heroName + " Movies"} items={formatMovies} />;
+  return (
+    <List
+      type="movie"
+      title={query.heroName + " Movies"}
+      items={formatMovies}
+    />
+  );
 }
 
 export const getServerSideProps = async (context: NextPageContext) => {
