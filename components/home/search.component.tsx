@@ -5,7 +5,7 @@ export function Search() {
   const [search, setSearch] = useState("");
 
   return (
-    <div className="w-full self-center mt-2 md:w-80">
+    <div className="w-full self-center mt-2 mb-10 md:w-80">
       <p className="font-thin my-2">Can not find your hero?</p>
       <div className="relative">
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
