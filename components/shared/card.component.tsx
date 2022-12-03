@@ -5,12 +5,17 @@ import { Image } from "./image.component";
 type Props = {
   type: "movie" | "hero";
   data: ICard;
+  active: boolean;
 };
 
-export const Card = ({ type, data }: Props) => {
+export const Card = ({ type, data, active }: Props) => {
   return (
     <Link href={type === "hero" ? `/movies/${data.title}` : "/"}>
-      <div className="flex flex-1 flex-col rounded-xl overflow-hidden shadow-lg bg-red-500 hover:bg-sky-700 hover:scale-105 duration-300">
+      <div
+        className={`flex flex-1 flex-col rounded-xl overflow-hidden shadow-lg bg-red-500 hover:scale-105 duration-300 ${
+          active && "bg-sky-700 scale-105"
+        }`}
+      >
         <div className="relative aspect-square">
           <Image
             src={data.image || ""}
@@ -36,4 +41,8 @@ export const Card = ({ type, data }: Props) => {
       </div>
     </Link>
   );
+};
+
+Card.defaultProps = {
+  active: false,
 };
