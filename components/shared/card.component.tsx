@@ -41,7 +41,9 @@ export const Card = ({ type, data, active }: Props) => {
                 : "text-md"
             }`}
           >
-            {data.title}
+            {data.title.length > 40
+              ? data.title.slice(0, 40) + "..."
+              : data.title}
           </div>
 
           {data.description && (
