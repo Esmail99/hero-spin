@@ -17,7 +17,7 @@ export const List = ({ type, title, items }: Props) => {
       <div className="flex flex-wrap justify-center">
         {items.map((item) => {
           return (
-            <div key={item.title} className="m-2">
+            <div key={item.title} className="m-2 md:m-3 max-w-xs w-60">
               <Card type={type} data={item} />
             </div>
           );
