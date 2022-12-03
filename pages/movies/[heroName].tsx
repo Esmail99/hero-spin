@@ -6,14 +6,14 @@ import { configs } from "../../configs";
 import { IMovie } from "../../types/movie.types";
 
 interface Props {
-  movies: IMovie[];
+  movies?: IMovie[];
 }
 
 export default function Movies({ movies }: Props) {
   const { query } = useRouter();
 
-  const formatMovies = useMemo(() => {
-    return movies.map((movie) => {
+  const formattedMovies = useMemo(() => {
+    return movies?.map((movie) => {
       return {
         title: movie.Title,
         image: movie.Poster === "N/A" ? undefined : movie.Poster,
@@ -21,11 +21,19 @@ export default function Movies({ movies }: Props) {
     });
   }, [movies]);
 
+  if (!formattedMovies) {
+    return (
+      <div className="flex flex-1 items-center justify-center">
+        <p className="font-thin">No Movies found!</p>
+      </div>
+    );
+  }
+
   return (
     <List
       type="movie"
       title={query.heroName + " Movies"}
-      items={formatMovies}
+      items={formattedMovies}
     />
   );
 }
@@ -39,7 +47,7 @@ export const getServerSideProps = async (context: NextPageContext) => {
 
   return {
     props: {
-      movies: data.Search,
+      movies: data.Search || null,
     },
   };
 };
