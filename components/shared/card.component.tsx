@@ -21,7 +21,11 @@ export const Card = ({ type, data }: Props) => {
         </div>
 
         <div className="px-6 py-4 text-center">
-          <div className="font-bold font-mono text-lg mb-2 h-16 text-center items-center justify-center flex">
+          <div
+            className={`font-bold font-mono mb-2 h-16 text-center items-center justify-center flex ${
+              data.title.length > 25 ? "text-sm" : "text-lg"
+            }`}
+          >
             {data.title}
           </div>
 
