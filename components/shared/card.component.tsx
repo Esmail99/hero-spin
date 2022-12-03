@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ICard } from "../../types/card.types";
+import { ICard } from "types/card.types";
 import { Image } from "./image.component";
 
 type Props = {
@@ -41,7 +41,9 @@ export const Card = ({ type, data, active }: Props) => {
                 : "text-md"
             }`}
           >
-            {data.title}
+            {data.title.length > 40
+              ? data.title.slice(0, 40) + "..."
+              : data.title}
           </div>
 
           {data.description && (

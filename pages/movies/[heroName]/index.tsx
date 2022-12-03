@@ -1,9 +1,9 @@
+import { NotFound, List, Meta } from "components/shared";
+import { configs } from "configs";
 import { NextPageContext } from "next";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
-import { List, NotFound } from "../../../components/shared";
-import { configs } from "../../../configs";
-import { IMovieCard } from "../../../types/movie.types";
+import { IMovieCard } from "types/movie.types";
 
 interface Props {
   movies?: IMovieCard[];
@@ -27,11 +27,15 @@ export default function Movies({ movies }: Props) {
   }
 
   return (
-    <List
-      type="movie"
-      title={query.heroName + " Movies"}
-      items={formattedMovies}
-    />
+    <>
+      <Meta title={"Hero Spin | " + query.heroName} />
+
+      <List
+        type="movie"
+        title={query.heroName + " Movies"}
+        items={formattedMovies}
+      />
+    </>
   );
 }
 
