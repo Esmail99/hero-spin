@@ -79,6 +79,11 @@ export default function Movie({ movie }: Props) {
 }
 
 export const getServerSideProps = async (context: NextPageContext) => {
+  context.res?.setHeader(
+    "Cache-Control",
+    "public, s-maxage=36000000, stale-while-revalidate"
+  );
+
   const res = await fetch(
     `https://www.omdbapi.com/?apikey=${configs.OMDB_API_KEY}&i=${context.query.imdbID}`
   );
