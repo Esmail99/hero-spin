@@ -1,7 +1,7 @@
 import { NextPageContext } from "next";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
-import { List } from "../../../components/shared";
+import { List, NotFound } from "../../../components/shared";
 import { configs } from "../../../configs";
 import { IMovieCard } from "../../../types/movie.types";
 
@@ -23,11 +23,7 @@ export default function Movies({ movies }: Props) {
   }, [movies]);
 
   if (!formattedMovies) {
-    return (
-      <div className="flex flex-1 items-center justify-center">
-        <p className="font-thin">No Movies found!</p>
-      </div>
-    );
+    return <NotFound />;
   }
 
   return (

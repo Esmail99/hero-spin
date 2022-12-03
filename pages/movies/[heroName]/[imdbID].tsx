@@ -1,4 +1,5 @@
 import { NextPageContext } from "next";
+import { NotFound } from "../../../components/shared";
 import { configs } from "../../../configs";
 import { IMovie } from "../../../types/movie.types";
 
@@ -8,11 +9,7 @@ interface Props {
 
 export default function Movie({ movie }: Props) {
   if (!movie) {
-    return (
-      <div className="flex flex-1 items-center justify-center">
-        <p className="font-thin">No Movie found!</p>
-      </div>
-    );
+    return <NotFound />;
   }
 
   return <p>welcome to {movie.Title}</p>;
