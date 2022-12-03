@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect } from "react";
+import { createRef, useCallback, useState } from "react";
 import { ICard } from "../../types/card.types";
-import { sleep } from "../../utils";
 import { Button } from "./button.component";
 import { Card } from "./card.component";
 
@@ -13,13 +13,30 @@ type Props = {
 export const List = ({ type, title, items }: Props) => {
   const [activeItemIndex, setActiveItemIndex] = useState<number>();
 
-  const pickRandomItem = useCallback(async () => {
-    for (let counter = 0; counter < 10; counter++) {
-      const randomIndex = Math.floor(Math.random() * items.length);
-      setActiveItemIndex(randomIndex);
+  const refs = items.map(() => {
+    return createRef<HTMLDivElement>();
+  });
 
-      await sleep(200);
+  useEffect(() => {
+    if (activeItemIndex === 0 || activeItemIndex) {
+      scrollToIndex(activeItemIndex);
     }
+  }, [activeItemIndex]);
+
+  const scrollToIndex = useCallback(
+    (index: number) => {
+      refs[index].current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+    },
+    [refs]
+  );
+
+  const pickRandomItem = useCallback(async () => {
+    const randomIndex = Math.floor(Math.random() * items.length);
+    setActiveItemIndex(randomIndex);
   }, [items.length]);
 
   return (
@@ -36,7 +53,11 @@ export const List = ({ type, title, items }: Props) => {
       <div className="flex flex-wrap justify-center">
         {items.map((item, index) => {
           return (
-            <div key={item.title} className="m-2 md:m-3 max-w-xs w-60">
+            <div
+              ref={refs[index]}
+              key={item.title}
+              className="m-2 md:m-3 max-w-xs w-60"
+            >
               <Card
                 type={type}
                 data={item}
