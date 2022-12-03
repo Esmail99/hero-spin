@@ -1,8 +1,8 @@
+import { Image, NotFound } from "components/shared";
+import { configs } from "configs";
 import { NextPageContext } from "next";
 import { useMemo } from "react";
-import { Image, NotFound } from "../../../components/shared";
-import { configs } from "../../../configs";
-import { IMovie } from "../../../types/movie.types";
+import { IMovie } from "types/movie.types";
 
 interface Props {
   movie?: IMovie;

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { createRef, useCallback, useState } from "react";
-import { ICard } from "../../types/card.types";
+import { ICard } from "types/card.types";
 import { Button } from "./button.component";
 import { Card } from "./card.component";
 
