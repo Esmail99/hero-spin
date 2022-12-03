@@ -33,8 +33,12 @@ export const Card = ({ type, data, active }: Props) => {
 
         <div className="px-6 py-4 text-center">
           <div
-            className={`font-bold font-mono mb-2 h-16 text-center items-center justify-center flex ${
-              data.title.length > 25 ? "text-sm" : "text-lg"
+            className={`font-bold font-mono mb-2 h-6 text-center items-center justify-center flex ${
+              data.title.length > 30
+                ? "text-xs"
+                : data.title.length > 20
+                ? "text-sm"
+                : "text-md"
             }`}
           >
             {data.title}
