@@ -1,4 +1,4 @@
-import { NotFound, List } from "components/shared";
+import { NotFound, List, Meta } from "components/shared";
 import { configs } from "configs";
 import { NextPageContext } from "next";
 import { useRouter } from "next/router";
@@ -27,11 +27,15 @@ export default function Movies({ movies }: Props) {
   }
 
   return (
-    <List
-      type="movie"
-      title={query.heroName + " Movies"}
-      items={formattedMovies}
-    />
+    <>
+      <Meta title={"Hero Spin | " + query.heroName} />
+
+      <List
+        type="movie"
+        title={query.heroName + " Movies"}
+        items={formattedMovies}
+      />
+    </>
   );
 }
 
