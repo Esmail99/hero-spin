@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import { useMemo } from "react";
 import { List } from "../../components/shared";
 import { configs } from "../../configs";
-import { IMovie } from "../../types/movie.types";
+import { IMovieCard } from "../../types/movie.types";
 
 interface Props {
-  movies?: IMovie[];
+  movies?: IMovieCard[];
 }
 
 export default function Movies({ movies }: Props) {

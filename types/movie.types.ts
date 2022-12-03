@@ -1,7 +1,34 @@
-export interface IMovie {
+export interface IMovieCard {
   Title: string;
-  Year: `${number}-${number}`;
+  Year: `${number}-${number}` | `${number}`;
   imdbID: string;
   Type: string;
   Poster: string;
+}
+
+export interface IMovie extends IMovieCard {
+  Rated: string;
+  Released: string;
+  Runtime: string;
+  Genre: string;
+  Director: string;
+  Writer: string;
+  Actors: string;
+  Plot: string;
+  Language: string;
+  Country: string;
+  Awards: string;
+  Ratings: IRate[];
+  Metascore: `${number}`;
+  imdbRating: `${number}`;
+  imdbVotes: string;
+  DVD: string;
+  BoxOffice: string;
+  Production: string;
+  Website: string;
+}
+
+export interface IRate {
+  Source: string;
+  Value: string;
 }
