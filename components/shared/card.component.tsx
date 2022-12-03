@@ -20,8 +20,10 @@ export const Card = ({ type, data }: Props) => {
           />
         </div>
 
-        <div className="px-6 py-4">
-          <div className="font-bold text-lg mb-2">{data.title}</div>
+        <div className="px-6 py-4 text-center">
+          <div className="font-bold font-mono text-lg mb-2 h-16 text-center items-center justify-center flex">
+            {data.title}
+          </div>
 
           {data.description && (
             <p className="text-gray-700 text-base">{data.description}</p>
