@@ -40,14 +40,15 @@ export const List = ({ type, title, items }: Props) => {
   }, [items.length]);
 
   return (
-    <div className="flex flex-1 flex-col justify-center items-center">
-      <p className="m-2 font-mono text-lg text-center md:text-2xl md:my-4">
+    <div className="flex flex-1 flex-col justify-center items-center my-4">
+      <h1 className="m-2 font-mono text-2xl text-center md:text-2xl md:my-4">
         {title}
-      </p>
+      </h1>
 
       <Button
         title={`Pick A Random ${type === "hero" ? "Hero" : "Movie"}`}
         onClick={pickRandomItem}
+        className="my-4"
       />
 
       <div className="flex flex-wrap justify-center">
